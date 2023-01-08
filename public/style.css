@@ -1,11 +1,24 @@
 img{
-    width: 20%;
+    width: 200px;
     border-bottom: 20%;
+    border: 10px solid #e0e0e0;
 }
 #skills{
     padding-bottom: 0%;
 }
-.badge bg-primary{
-    padding-bottom: 0%;
-    border-bottom: 0%;
+.badge{
+    font-size: 120%;
+    font-weight: 200;
+    text-transform: lowercase;
+    color: black;
+    border: 1px solid black;
+}
+
+.contact{
+    border: 1px solid black;
+    border-radius: 50px;   
+}
+
+.card{
+    border: 1px solid black;
 }
