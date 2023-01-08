@@ -1,0 +1,11 @@
+img{
+    width: 20%;
+    border-bottom: 20%;
+}
+#skills{
+    padding-bottom: 0%;
+}
+.badge bg-primary{
+    padding-bottom: 0%;
+    border-bottom: 0%;
+}
