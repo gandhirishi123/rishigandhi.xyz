@@ -18,51 +18,67 @@ let person = {
 
 }
 
-let projects = [{
-    title: "Search Github User",
-    decsription: "Enter Github username and see the magic.",
-    link: "https://gandhirishi123.github.io/searchgithubuser/"
-}, {
-    title: "Github Users",
-    decsription: "Fetching Github API's,navbar and implementing loaders and using bootstrap.",
-    link: "https://gandhirishi123.github.io/bootstrapgithubapi/"
-},
-{
-    title: "School Marklist display",
-    decsription: "Enter student's marks and display in a table form.",
-    link: "https://gandhirishi123.github.io/Takemarksanddisplay/"
-}]
 
-document.getElementById('hero').innerHTML = `<div class="col">
-<img src="${person.image_url}"
-class="rounded-circle mb-3" alt="" width="15%" srcset="">
-<h1>${person.name}</h1>
-<p>${person.city}, ${person.state}, ${person.country}</p>
-<p>${person.bio}</p>
-<div id="social" class="my-4"></div>
-<a href="mailto:${person.email}" target="_blank"><button type="button"
-        class="btn btn-primary">Contact Me</button></a>
-</div>`
-projects.forEach(p => document.getElementById('projectsdata').innerHTML += `<div class="col-md-4" class="mb-3">
-<div class="card" style="width: 100%;">
-    <div class="card-body">
-        <h5 class="card-title">${p.title}</h5>
-        <p class="card-text">${p.decsription}</p>
-        <a href="${p.link}" target="_blank"
-            class="card-link">TRY NOW</a>
+// Printing Hero Section dynamically
+document.getElementById('hero').innerHTML = `
+<div class="col">
+    <img src="${person.image_url}"class="rounded-circle mb-3" alt="" width="15%" srcset="">
+    <h1>${person.name}</h1>
+    <p>${person.city}, 
+    ${person.state}, 
+    ${person.country}
+    </p>
+    <p>${person.bio}
+    </p>
+    <div id="social" class="my-4">
     </div>
+    <a href="mailto:${person.email}" target="_blank"><button type="button"class="btn btn-primary">
+    Contact Me
+    </button>
+    </a>
 </div>
-</div>`)
+`
+// Printing Hero Section dynamically
+
+// Printing Skills Section dynamically
+
 person.skills.forEach(skill => document.getElementById('skills').innerHTML += `
 <span class="badge bg-warning">${skill}</span>`)
+// Printing skills Section dynamically
+
+// Printing Social Section dynamically
 
 document.getElementById('social').innerHTML += `
 <a class="mx-2 bi bi-linkedin" style="color: black;" href="${person.social_links.linkedin}"></a>
 <a class="mx-2 bi bi-twitter" style="color: black;" href="${person.social_links.twitter}"></a>
 <a class="mx-2 bi bi-github" style="color: black;" href="${person.social_links.github}"></a>
 `
+// Printing social Section dynamically
+
+// Printing email Section dynamically
 document.getElementById('email').innerHTML=`<p>You can also contact me <a href="mailto:${person.email}">here</a></p>`
 
+// fetch projects through api & display projects 
+function getProjects() {
+    fetch('https://raw.githubusercontent.com/gandhirishi123/webapp-data/main/projects.json')
+    .then(data => data.json())
+    .then(res => {
+        // Print Projects
+        res.forEach(p => document.getElementById('projectsdata').innerHTML += `
+            <div class="col-md-4 mb-2">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">${p.title}</h5>
+                        <p class="card-text">${p.decsription}</p>
+                        <a href="${p.link}" target="_blank" class="card-link">Visit</a>
+                    </div>
+                </div>
+            </div>
+            `)
+    }).catch(err => console.log(err))
+}
+// display projects by calling its function
+getProjects()
 
 
 
