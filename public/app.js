@@ -3,7 +3,7 @@ let person = {
     city: "Pune",
     state: "Maharashtra",
     country: "India",
-    bio: " A strong communicator, able to address all client questions and concerns. Experienced in working collaboratively with a team of veterinary professionals. Equipped with a diverse and promising skill-set. Proficient in an assortment of technologies Accustomed to working well with others and committed to meeting deadlines and adhering to project guidelines. Willing to touch new heights and transform this new age of tech.",
+    bio: `As a new frontend developer, I am eager to start my career in the exciting field of web development. I have a passion for creating user-friendly and visually appealing websites, and I am eager to continue learning and growing my skills.Although I do not have any professional experience in frontend development, I have been learning the necessary tools and technologies on my own. I have a strong foundation in HTML, CSS, and JavaScript, and I am constantly exploring new frameworks and libraries to expand my knowledge.I am a quick learner and am always looking for new challenges to tackle. I believe that my passion for frontend development and my eagerness to learn will help me make a valuable contribution to any development team. I am excited to start my career and look forward to the opportunity to bring my ideas to life.`,
     email: "rishigandhi021@gmail.com",
     image_url: "https://media.licdn.com/dms/image/D4D03AQGHfsyop4BX0g/profile-displayphoto-shrink_800_800/0/1672858513526?e=1678320000&v=beta&t=JzObfyi-4q7vJIPUxYPM0XqVAe29-ajjpA_BXZt4ymA",
     social_links: {
@@ -15,24 +15,21 @@ let person = {
         github: "https://github.com/gandhirishi123"
     },
     skills: ["HTML:5", "CSS:3", "JavaScript", "Embedded C", "MySQL", "Data Structures", "C++", "Java"]
-
 }
 
 
 // Printing Hero Section dynamically
-document.getElementById('hero').innerHTML = `
-<div class="col">
+document.getElementById('hero').innerHTML=`<div class="col">
     <img src="${person.image_url}"class="rounded-circle mb-3" alt="" width="15%" srcset="">
     <h1>${person.name}</h1>
     <p>${person.city}, 
     ${person.state}, 
     ${person.country}
     </p>
-    <p>${person.bio}
-    </p>
+    <p>${person.bio}</p>
     <div id="social" class="my-4">
     </div>
-    <a href="mailto:${person.email}" target="_blank"><button type="button"class="btn btn-primary">
+    <a href="mailto:${person.email}" target="_blank"><button type="button"class="btn btn-primary contact">
     Contact Me
     </button>
     </a>
@@ -43,7 +40,7 @@ document.getElementById('hero').innerHTML = `
 // Printing Skills Section dynamically
 
 person.skills.forEach(skill => document.getElementById('skills').innerHTML += `
-<span class="badge bg-warning">${skill}</span>`)
+<span class="badge bg-warning rounded-pill">${skill}</span>`)
 // Printing skills Section dynamically
 
 // Printing Social Section dynamically
@@ -58,7 +55,7 @@ document.getElementById('social').innerHTML += `
 // Printing email Section dynamically
 document.getElementById('email').innerHTML=`<p>You can also contact me <a href="mailto:${person.email}">here</a></p>`
 
-// fetch projects through api & display projects 
+// fetch projects through api,create its json,function  & display projects 
 function getProjects() {
     fetch('https://raw.githubusercontent.com/gandhirishi123/webapp-data/main/projects.json')
     .then(data => data.json())

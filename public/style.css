@@ -1,12 +1,15 @@
 img{
     width: 15%;
     border-bottom: 20%;
+    border: 2px solid #e0e0e0;
 }
 #skills{
     padding-bottom: 0%;
 }
 .badge {
-    
+    font-size: 20px;
+    border: 1px solid black; 
+    font-weight:300;
     text-decoration: solid;
     color: black;
 }
@@ -15,5 +18,11 @@ img{
 }
 #proo{
     border: 1px solid black;
-    background-color: #e0e0e0; 
+    background-color: #e0e0e0;
+    
+}
+.contact{border: 1px solid black;
+}
+#skillset{
+    padding-bottom: 0%;
 }
